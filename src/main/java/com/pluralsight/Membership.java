@@ -7,7 +7,7 @@ public class Membership {
     private BigDecimal baseRate;
     private int membershipMonths;
 
-    public Membership(int membershipMonths, String name, BigDecimal baseRate) {
+    public Membership( String name, BigDecimal baseRate, int membershipMonths) {
         this.membershipMonths = membershipMonths;
         this.name = name;
         this.baseRate = baseRate;
@@ -39,5 +39,11 @@ public class Membership {
     public BigDecimal getMonthlyPrice(){
         return baseRate;
 
+    }
+    public BigDecimal getSignUpFee(){
+        if (getMembershipMonths() >= 12){
+            return new BigDecimal("0.00");
+        }
+        return new BigDecimal("49.00");
     }
 }
